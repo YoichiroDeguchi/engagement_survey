@@ -5,21 +5,23 @@
 //----------ローカルストレージへ保存----------
 
 const allData = [];
-// 属性の値取得
+
+// 値の取得
 $("#end_btn").on("click", function () {
+    // 属性
     const GetDataGender = $('input:radio[name="gender"]:checked').val();
     const GetDataAge = $('input:radio[name="age"]:checked').val();
     const GetDataAffiliation = $('input:radio[name="affiliation"]:checked').val();
     const GetDataOccupation = $('input:radio[name="occupation"]:checked').val();
     const GetDataLength = $('input:radio[name="length"]:checked').val();
-    // 設問の値取得
-    const GetDataQ1 = $('input:radio[name="q1"]:checked').val();
-    const GetDataQ2 = $('input:radio[name="q2"]:checked').val();
-    const GetDataQ3 = $('input:radio[name="q3"]:checked').val();
-    const GetDataQ4 = $('input:radio[name="q4"]:checked').val();
-    const GetDataQ5 = $('input:radio[name="q5"]:checked').val();
-    const GetDataQ6 = $('input:radio[name="q6"]:checked').val();
-    const GetDataQ7 = $('input:radio[name="q7"]:checked').val();
+    // 設問 → 文字列を数値に変換
+    const GetDataQ1 = Number($('input:radio[name="q1"]:checked').val());
+    const GetDataQ2 = Number($('input:radio[name="q2"]:checked').val());
+    const GetDataQ3 = Number($('input:radio[name="q3"]:checked').val());
+    const GetDataQ4 = Number($('input:radio[name="q4"]:checked').val());
+    const GetDataQ5 = Number($('input:radio[name="q5"]:checked').val());
+    const GetDataQ6 = Number($('input:radio[name="q6"]:checked').val());
+    const GetDataQ7 = Number($('input:radio[name="q7"]:checked').val());
     // 配列
     const GetData = {
         GetDataGender: GetDataGender,
@@ -41,107 +43,132 @@ $("#end_btn").on("click", function () {
 
     // ローカルストレージへ保存
     const jsonGetData = JSON.stringify(allData);
-    localStorage.setItem("mainData", jsonGetData);
+    localStorage.setItem("allData", jsonGetData);
 });
 
 
 //----------ローカルストレージから情報を受け取る----------
-if (localStorage.getItem("mainData")) {
-    const jsonGetData = localStorage.getItem("mainData");
+if (localStorage.getItem("allData")) {
+    const jsonGetData = localStorage.getItem("allData");
     const GetData = JSON.parse(jsonGetData);
     console.log(GetData);
 
     // Q1
     const dataQ1Arr = [];
     GetData.forEach(elm => {
-        console.log(elm);
-        const answerQ1 = elm.GetDataQ1;
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ1 = elm.GetDataQ1; //GetDataの中のQ1の値を取得
         dataQ1Arr.push(answerQ1);
     });
     console.log(dataQ1Arr);
-
-    // Q1の平均点を取得
-    const q1Total = dataQ1Arr.reduce(function (sum, element) {
-        return sum + element;
-    }, 0);
-    const q1Average = q1Total / dataQ1Arr.length
-    console.log(q1Average);
+    // 平均点を取得
+    let sumQ1 = dataQ1Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ1 = sumQ1 / dataQ1Arr.length //平均点の算出
+    console.log(averageQ1);
+    // 結果画面への表示
+    document.getElementById("GetDataQ1").innerHTML = averageQ1;
 
     // Q2
+    const dataQ2Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ2 = elm.GetDataQ2; //GetDataの中のQ1の値を取得
+        dataQ2Arr.push(answerQ2);
+    });
+    console.log(dataQ2Arr);
+    // 平均点を取得
+    let sumQ2 = dataQ2Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ2 = sumQ2 / dataQ2Arr.length //平均点の算出
+    console.log(averageQ2);
+    // 結果画面への表示
+    document.getElementById("GetDataQ2").innerHTML = averageQ2;
 
     // Q3
+    const dataQ3Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ3 = elm.GetDataQ3; //GetDataの中のQ1の値を取得
+        dataQ3Arr.push(answerQ3);
+    });
+    console.log(dataQ3Arr);
+    // 平均点を取得
+    let sumQ3 = dataQ3Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ3 = sumQ3 / dataQ3Arr.length //平均点の算出
+    console.log(averageQ3);
+    // 結果画面への表示
+    document.getElementById("GetDataQ3").innerHTML = averageQ3;
 
     // Q4
+    const dataQ4Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ4 = elm.GetDataQ4; //GetDataの中のQ1の値を取得
+        dataQ4Arr.push(answerQ4);
+    });
+    console.log(dataQ4Arr);
+    // 平均点を取得
+    let sumQ4 = dataQ4Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ4 = sumQ4 / dataQ4Arr.length //平均点の算出
+    console.log(averageQ4);
+    // 結果画面への表示
+    document.getElementById("GetDataQ4").innerHTML = averageQ4;
 
     // Q5
+    const dataQ5Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ5 = elm.GetDataQ5; //GetDataの中のQ1の値を取得
+        dataQ5Arr.push(answerQ5);
+    });
+    console.log(dataQ5Arr);
+    // 平均点を取得
+    let sumQ5 = dataQ5Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ5 = sumQ5 / dataQ5Arr.length //平均点の算出
+    console.log(averageQ5);
+    // 結果画面への表示
+    document.getElementById("GetDataQ5").innerHTML = averageQ5;
 
     // Q6
+    const dataQ6Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ6 = elm.GetDataQ6; //GetDataの中のQ1の値を取得
+        dataQ6Arr.push(answerQ6);
+    });
+    console.log(dataQ6Arr);
+    // 平均点を取得
+    let sumQ6 = dataQ6Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ6 = sumQ6 / dataQ6Arr.length //平均点の算出
+    console.log(averageQ6);
+    // 結果画面への表示
+    document.getElementById("GetDataQ6").innerHTML = averageQ6;
 
     // Q7
-
-
-
+    const dataQ7Arr = [];
+    GetData.forEach(elm => {
+        console.log(elm); //elmはallDataの中のGetDataを取得
+        const answerQ7 = elm.GetDataQ7; //GetDataの中のQ1の値を取得
+        dataQ7Arr.push(answerQ7);
+    });
+    console.log(dataQ7Arr);
+    // 平均点を取得
+    let sumQ7 = dataQ7Arr.reduce((a, b) => { //回答の値の総和
+        return a + b;
+    });
+    const averageQ7 = sumQ7 / dataQ7Arr.length //平均点の算出
+    console.log(averageQ7);
     // 結果画面への表示
-    // document.getElementById("GetDataQ1").innerHTML = GetData.GetDataQ1;
-    // document.getElementById("GetDataQ2").innerHTML = GetData.GetDataQ2;
-    // document.getElementById("GetDataQ3").innerHTML = GetData.GetDataQ3;
-    // document.getElementById("GetDataQ4").innerHTML = GetData.GetDataQ4;
-    // document.getElementById("GetDataQ5").innerHTML = GetData.GetDataQ5;
-    // document.getElementById("GetDataQ6").innerHTML = GetData.GetDataQ6;
-    // document.getElementById("GetDataQ7").innerHTML = GetData.GetDataQ7;
+    document.getElementById("GetDataQ7").innerHTML = averageQ7;
 }
-
-
-
-
-
-
-
-
-// ローカルストレージから情報を受け取る
-// const localStorageQ2 = JSON.parse((localStorage.getItem("GetDataQ2")));
-// document.getElementById("GetDataQ2").innerHTML = localStorageQ2;
-// const localStorageQ3 = JSON.parse((localStorage.getItem("GetDataQ3")));
-// document.getElementById("GetDataQ3").innerHTML = localStorageQ3;
-// const localStorageQ4 = JSON.parse((localStorage.getItem("GetDataQ4")));
-// document.getElementById("GetDataQ4").innerHTML = localStorageQ4;
-// const localStorageQ5 = JSON.parse((localStorage.getItem("GetDataQ5")));
-// document.getElementById("GetDataQ5").innerHTML = localStorageQ5;
-// const localStorageQ6 = JSON.parse((localStorage.getItem("GetDataQ6")));
-// document.getElementById("GetDataQ6").innerHTML = localStorageQ6;
-// const localStorageQ7 = JSON.parse((localStorage.getItem("GetDataQ7")));
-// document.getElementById("GetDataQ7").innerHTML = localStorageQ7;
-
-
-
-
-
-
-    // ---配列が機能しなかったら以下の個別を使う-------------------------------------------------------------------------------
-    // ローカルストレージへ保存
-    // const JsonGetDataGender = JSON.stringify(GetDataGender);
-    // localStorage.setItem("GetDataGender", JsonGetDataGender);
-    // const JsonGetDataAge = JSON.stringify(GetDataAge);
-    // localStorage.setItem("GetDataAge", JsonGetDataAge);
-    // const JsonGetDataAffiliation = JSON.stringify(GetDataAffiliation);
-    // localStorage.setItem("GetDataAffiliation", JsonGetDataAffiliation);
-    // const JsonGetDataOccupation = JSON.stringify(GetDataOccupation);
-    // localStorage.setItem("GetDataOccupation", JsonGetDataOccupation);
-    // const JsonGetDataLength = JSON.stringify(GetDataLength);
-    // localStorage.setItem("GetDataLength", JsonGetDataLength);
-
-    // const JsonGetDataQ1 = JSON.stringify(GetDataQ1);
-    // localStorage.setItem("GetDataQ1", JsonGetDataQ1);
-    // const JsonGetDataQ2 = JSON.stringify(GetDataQ2);
-    // localStorage.setItem("GetDataQ2", JsonGetDataQ2);
-    // const JsonGetDataQ3 = JSON.stringify(GetDataQ3);
-    // localStorage.setItem("GetDataQ3", JsonGetDataQ3);
-    // const JsonGetDataQ4 = JSON.stringify(GetDataQ4);
-    // localStorage.setItem("GetDataQ4", JsonGetDataQ4);
-    // const JsonGetDataQ5 = JSON.stringify(GetDataQ5);
-    // localStorage.setItem("GetDataQ5", JsonGetDataQ5);
-    // const JsonGetDataQ6 = JSON.stringify(GetDataQ6);
-    // localStorage.setItem("GetDataQ6", JsonGetDataQ6);
-    // const JsonGetDataQ7 = JSON.stringify(GetDataQ7);
-    // localStorage.setItem("GetDataQ7", JsonGetDataQ7);
-// });
