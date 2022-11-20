@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
+
+/* -----------------
+    base
+-----------------*/
+body {
+    width: 960px;
+    margin: auto;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+
+/* -----------------
+    結果ページ
+-----------------*/
+.score_wrapper,
+.score_transition_wrapper,
+.genre_wrapper,
+.strength_weakness_wrapper,
+.gender_female_box,
+.gender_male_box,
+.age_20_box,
+.age_30_box,
+.age_40_box,
+.age_50_box,
+.affiliation_matoba_box,
+.affiliation_jiromaru_box,
+.occupation_nurse_box,
+.occupation_therapist_box,
+.occupation_clerk_box,
+.length_1_box,
+.length_12_box,
+.length_23_box,
+.length_3_box {
+    padding: 0.5em 1em;
+    margin: 2em 0;
+    font-weight: bold;
+    /*文字色*/
+    background: #FFF;
+    border: solid 3px;
+    /*線*/
+    border-radius: 10px;
+    /*角の丸み*/
+}
