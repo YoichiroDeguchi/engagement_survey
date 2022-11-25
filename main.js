@@ -1,4 +1,11 @@
 //次へボタンを押したら画面切り替え
+$(function () {
+    $(".next_btn").on("click", function () { //btnクラスをクリック後の関数処理
+        $(this).closest("div").css("display", "none"); //質問画面にあたらる親要素divをdisplay:none;にする
+        id = $(this).attr("href"); //次の質問hrefをidに格納
+        $(id).addClass("fit").fadeIn("slow").show(); //次の質問にfitをつけて出力。
+    });
+});
 
 
 
@@ -59,6 +66,7 @@ $("#end_btn").on("click", function () {
 
 
 //----------ローカルストレージから情報を受け取る----------
+
 if (localStorage.getItem("allData")) {
     const jsonGetData = localStorage.getItem("allData");
     const GetData = JSON.parse(jsonGetData);
@@ -187,7 +195,285 @@ if (localStorage.getItem("allData")) {
 
 
 
-// ---------------属性ごとにデータ取得---------------
+// -------------------------属性ごとにデータ取得-------------------------
+
+// -----選択した属性ごとにグラフ表示-----
+function change() {
+    if (document.getElementById("optionBox")) {
+        selboxValue = document.getElementById("optionBox").value;
+        if (selboxValue == "optionFemale") {
+            //女性を表示
+            document.getElementById("genderFemaleBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionMale") {
+            //男性を表示
+            document.getElementById("genderMaleBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "option20") {
+            //20代を表示
+            document.getElementById("age20Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "option30") {
+            //30代を表示
+            document.getElementById("age30Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "option40") {
+            //40代を表示
+            document.getElementById("age40Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "option50") {
+            //50代を表示
+            document.getElementById("age50Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionMatoba") {
+            //的場店を表示
+            document.getElementById("affiliationMatobaBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionJiromaru") {
+            //次郎丸店を表示
+            document.getElementById("affiliationJiromaruBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionNurse") {
+            //看護師を表示
+            document.getElementById("occupationNurseBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionTherapist") {
+            //セラピストを表示
+            document.getElementById("occupationTherapistBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionClerk") {
+            //事務を表示
+            document.getElementById("occupationClerkBox").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionLength1") {
+            //1年未満を表示
+            document.getElementById("length1Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionLength12") {
+            //1-2年を表示
+            document.getElementById("length12Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionLength23") {
+            //2-3年を表示
+            document.getElementById("length23Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length3Box").style.display = "none";
+        } else if (selboxValue == "optionLength3") {
+            //3年を表示
+            document.getElementById("length3Box").style.display = "";
+            //それ以外を非表示
+            document.getElementById("genderFemaleBox").style.display = "none";
+            document.getElementById("genderMaleBox").style.display = "none";
+            document.getElementById("age20Box").style.display = "none";
+            document.getElementById("age30Box").style.display = "none";
+            document.getElementById("age40Box").style.display = "none";
+            document.getElementById("age50Box").style.display = "none";
+            document.getElementById("affiliationMatobaBox").style.display = "none";
+            document.getElementById("affiliationJiromaruBox").style.display = "none";
+            document.getElementById("occupationNurseBox").style.display = "none";
+            document.getElementById("occupationTherapistBox").style.display = "none";
+            document.getElementById("occupationClerkBox").style.display = "none";
+            document.getElementById("length1Box").style.display = "none";
+            document.getElementById("length12Box").style.display = "none";
+            document.getElementById("length23Box").style.display = "none";
+        }
+    }
+}
 
 // -----性別_女性-----
 
@@ -1894,44 +2180,3 @@ let sumLength3Q7 = length3DataQ7Arr.reduce((a, b) => { //回答の値の総和
 const averageLength3Q7 = (sumLength3Q7 / length3DataQ7Arr.length).toFixed(1) //平均点の算出&小数第1位までで四捨五入
 console.log(averageLength3Q7);
 document.getElementById("length3DataQ7").innerHTML = averageLength3Q7; // 結果画面への表示
-
-
-
-
-
-
-
-
-
-//--------------------グラフ--------------------
-
-//「データ設定」
-// const mydata = {
-//     labels: ["労働時間", "報酬", "仕事のやりがい", "自己成長", "人間関係", "理念への共感"],
-//     datasets: [
-//         {
-//             label: '領域ごとの満足度',
-//             hoverBackgroundColor: "rgba(255,99,132,0.3)",
-//             data: [2.4, 5.3, 7.7, 3.6, 6.6, 8.5],
-//         }
-//     ]
-// };
-
-// //「オプション設定」
-// const options = {
-//     scales: {
-//         y: {
-//             min: 0,
-//             max: 10,
-//             stepSize: 1,
-//         }
-//     },
-//     responsive: false
-// };
-
-// const canvas = document.getElementById('chart');
-// const chart = new Chart(canvas, {
-//     type: 'bar',  //グラフの種類
-//     data: mydata,  //表示するデータ
-//     options: options  //オプション設定
-// });
