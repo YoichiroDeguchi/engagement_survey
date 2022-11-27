@@ -3,6 +3,7 @@
 ## DEMO
 
 https://yoichirodeguchi.github.io/engagement_survey/
+↑ top.htmlのページを上手く掲載できませんでした..
 
 ## 紹介と使い方
   - 従業員の満足度調査を行うツール
